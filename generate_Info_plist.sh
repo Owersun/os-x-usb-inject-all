@@ -13,7 +13,7 @@ function mergeModelData
 # $1 model identifier
 # $2 'EHCI' if should also merge in merge_EHCI
 {
-    buddy="/usr/libexec/plistbuddy -c"
+    buddy="/usr/libexec/PlistBuddy -c"
     tmp=/tmp/USB_translated.plist
     cat $merge | perl -p -e "s/model_placeholder/$1/" >$tmp
     $buddy "Merge $tmp ':IOKitPersonalities'" $plist_temp
@@ -91,6 +91,7 @@ mergeModelData "iMac18,1"
 mergeModelData "iMac18,2"
 mergeModelData "iMac18,3"
 mergeModelData "iMac19,1"
+mergeModelData "iMac19,2"
 
 # iMacPro
 mergeModelData "iMacPro1,1"
